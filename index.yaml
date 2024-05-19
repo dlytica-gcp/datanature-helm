@@ -3,12 +3,12 @@ entries:
   hive-metastore:
   - apiVersion: v2
     appVersion: 3.1.2
-    created: "2024-05-02T15:07:47.268676162+05:45"
+    created: "2024-05-19T22:37:50.257663096+05:45"
     description: The Apache Hive™ data warehouse software facilitates reading, writing,
       and managing large datasets residing in distributed storage using SQL. Structure
       can be projected onto data already in storage. A command line tool and JDBC
       driver are provided to connect users to Hive.
-    digest: c4be7326e03f38345de9415ef7369b1e644790507897aac82f760fbb8d070819
+    digest: 5f85122a96e27398d52da1fdc51e7609247cc6d4953b8195c9ac5c0e73dcb8bd
     home: https://hive.apache.org/
     icon: https://hive.apache.org/images/hive_logo_medium.jpg
     maintainers:
@@ -22,4 +22,44 @@ entries:
     urls:
     - https://dlytica-gcp.github.io/datanature-helm/hive-metastore-0.0.1.tgz
     version: 0.0.1
-generated: "2024-05-02T15:07:47.265650841+05:45"
+  n8n:
+  - annotations:
+      artifacthub.io/changes: "- kind: fixed\n  description: \"Fix persistence init
+        container indentation\"\n  links:        \n    - name: GitHub PR\n      url:
+        https://github.com/8gears/n8n-helm-chart/pull/85\n"
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.34.2
+    created: "2024-05-19T22:37:50.279112991+05:45"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 18.6.1
+    description: A Kubernetes Helm chart for n8n a free and open fair-code licensed
+      node based Workflow Automation Tool. Easily automate tasks across different
+      services.
+    digest: f500f5acf8d2c4461e99d450b10b4ccb782543dbbfa298c5ab9d7a12ab485881
+    home: https://github.com/8gears/n8n-helm-chart
+    icon: https://avatars1.githubusercontent.com/u/45487711?s=200&v=4
+    keywords:
+    - Workflow Automation
+    - Workflow
+    - iPaaS
+    - integration-framework
+    - low-code-plattform
+    - low-code
+    maintainers:
+    - email: contact@8gears.com
+      name: 8gears AG
+    - email: _@8gears.com
+      name: n8n Community
+    name: n8n
+    sources:
+    - https://github.com/n8n-io/n8n
+    - https://n8n.io/
+    type: application
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/n8n-0.23.1.tgz
+    version: 0.23.1
+generated: "2024-05-19T22:37:50.250143195+05:45"
