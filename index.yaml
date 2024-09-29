@@ -1,9 +1,330 @@
 apiVersion: v1
 entries:
+  airbyte:
+  - apiVersion: v2
+    appVersion: 0.50.47
+    created: "2024-09-29T21:58:50.2634205+05:45"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    - condition: airbyte-bootloader.enabled
+      name: airbyte-bootloader
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: temporal.enabled
+      name: temporal
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: webapp.enabled
+      name: webapp
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: server.enabled
+      name: server
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: airbyte-api-server.enabled
+      name: airbyte-api-server
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: worker.enabled
+      name: worker
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: workload-api-server.enabled
+      name: workload-api-server
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: workload-launcher.enabled
+      name: workload-launcher
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: pod-sweeper.enabled
+      name: pod-sweeper
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: metrics.enabled
+      name: metrics
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: cron.enabled
+      name: cron
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: connector-builder-server.enabled
+      name: connector-builder-server
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: keycloak.enabled
+      name: keycloak
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    - condition: keycloak-setup.enabled
+      name: keycloak-setup
+      repository: https://airbytehq.github.io/helm-charts/
+      version: 0.53.48
+    description: Helm chart to deploy airbyte
+    digest: f366e6cea28d65d91b47b2b1b5073f7675085d9b19568cb033bee12127f046d6
+    name: airbyte
+    type: application
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/airbyte-0.53.48.tgz
+    version: 0.53.48
+  airflow:
+  - annotations:
+      artifacthub.io/changes: |
+        - description: Add support for scheduler name to PODs templates
+          kind: added
+          links:
+          - name: '#33843'
+            url: https://github.com/apache/airflow/pull/33843
+        - description: Support KEDA scaling for triggerer
+          kind: added
+          links:
+          - name: '#32302'
+            url: https://github.com/apache/airflow/pull/32302
+        - description: Add support for container lifecycle hooks
+          kind: added
+          links:
+          - name: '#32349'
+            url: https://github.com/apache/airflow/pull/32349
+        - description: Support naming customization on helm chart resources
+          kind: added
+          links:
+          - name: '#31066'
+            url: https://github.com/apache/airflow/pull/31066
+        - description: Adding ``startupProbe`` to scheduler and webserver
+          kind: added
+          links:
+          - name: '#33107'
+            url: https://github.com/apache/airflow/pull/33107
+        - description: Allow disabling token mounts using ``automountServiceAccountToken``
+          kind: added
+          links:
+          - name: '#32808'
+            url: https://github.com/apache/airflow/pull/32808
+        - description: Add support for defining custom priority classes
+          kind: added
+          links:
+          - name: '#31615'
+            url: https://github.com/apache/airflow/pull/31615
+        - description: Add support for ``runtimeClassName``
+          kind: added
+          links:
+          - name: '#31868'
+            url: https://github.com/apache/airflow/pull/31868
+        - description: Add support for custom query in workers KEDA trigger
+          kind: added
+          links:
+          - name: '#32308'
+            url: https://github.com/apache/airflow/pull/32308
+        - description: Add ``containerSecurityContext`` for cleanup job
+          kind: changed
+          links:
+          - name: '#34351'
+            url: https://github.com/apache/airflow/pull/34351
+        - description: Add existing secret support for PGBouncer metrics exporter
+          kind: changed
+          links:
+          - name: '#32724'
+            url: https://github.com/apache/airflow/pull/32724
+        - description: Allow templating in webserver ingress hostnames
+          kind: changed
+          links:
+          - name: '#33142'
+            url: https://github.com/apache/airflow/pull/33142
+        - description: Allow templating in flower ingress hostnames
+          kind: changed
+          links:
+          - name: '#33363'
+            url: https://github.com/apache/airflow/pull/33363
+        - description: Add configmap annotations to StatsD and webserver
+          kind: changed
+          links:
+          - name: '#33340'
+            url: https://github.com/apache/airflow/pull/33340
+        - description: Add pod security context to PgBouncer
+          kind: changed
+          links:
+          - name: '#32662'
+            url: https://github.com/apache/airflow/pull/32662
+        - description: Add an option to use a direct DB connection in KEDA when PgBouncer
+            is enabled
+          kind: changed
+          links:
+          - name: '#32608'
+            url: https://github.com/apache/airflow/pull/32608
+        - description: Allow templating in cleanup.schedule
+          kind: changed
+          links:
+          - name: '#32570'
+            url: https://github.com/apache/airflow/pull/32570
+        - description: Template dag processor ``waitformigration`` containers ``extraVolumeMounts``
+          kind: changed
+          links:
+          - name: '#32100'
+            url: https://github.com/apache/airflow/pull/32100
+        - description: Ability to inject extra containers into PgBouncer
+          kind: changed
+          links:
+          - name: '#33686'
+            url: https://github.com/apache/airflow/pull/33686
+        - description: Allowing ability to add custom env into PgBouncer container
+          kind: changed
+          links:
+          - name: '#33438'
+            url: https://github.com/apache/airflow/pull/33438
+        - description: Add support for env variables in the StatsD container
+          kind: changed
+          links:
+          - name: '#33175'
+            url: https://github.com/apache/airflow/pull/33175
+        - description: Add ``airflow db migrate`` command to database migration job
+          kind: fixed
+          links:
+          - name: '#34178'
+            url: https://github.com/apache/airflow/pull/34178
+        - description: Pass ``workers.terminationGracePeriodSeconds`` into KubeExecutor pod
+            template
+          kind: fixed
+          links:
+          - name: '#33514'
+            url: https://github.com/apache/airflow/pull/33514
+        - description: CeleryExecutor namespace depends on Airflow version
+          kind: fixed
+          links:
+          - name: '#32753'
+            url: https://github.com/apache/airflow/pull/32753
+        - description: Fix dag processor not including webserver config volume
+          kind: fixed
+          links:
+          - name: '#32644'
+            url: https://github.com/apache/airflow/pull/32644
+        - description: Dag processor liveness probe include ``--local`` and ``--job-type``
+            args
+          kind: fixed
+          links:
+          - name: '#32426'
+            url: https://github.com/apache/airflow/pull/32426
+        - description: Revising flower_url_prefix considering default value
+          kind: fixed
+          links:
+          - name: '#33134'
+            url: https://github.com/apache/airflow/pull/33134
+        - description: 'Docs: Add more explicit "embedded postgres" exclusion for production'
+          kind: changed
+          links:
+          - name: '#33034'
+            url: https://github.com/apache/airflow/pull/33034
+        - description: 'Docs: Update git-sync description'
+          kind: changed
+          links:
+          - name: '#32181'
+            url: https://github.com/apache/airflow/pull/32181
+        - description: 'Misc: Default Airflow version to 2.7.1'
+          kind: changed
+          links:
+          - name: '#34186'
+            url: https://github.com/apache/airflow/pull/34186
+        - description: 'Misc: Update PostgreSQL subchart to 12.10.0'
+          kind: changed
+          links:
+          - name: '#33747'
+            url: https://github.com/apache/airflow/pull/33747
+        - description: 'Misc: Update git-sync to 3.6.9'
+          kind: changed
+          links:
+          - name: '#33748'
+            url: https://github.com/apache/airflow/pull/33748
+        - description: 'Misc: Remove unnecessary loops to load env from helm values'
+          kind: changed
+          links:
+          - name: '#33506'
+            url: https://github.com/apache/airflow/pull/33506
+        - description: 'Misc: Replace ``common.tplvalues.render`` with ``tpl`` in ingress
+            template files'
+          kind: changed
+          links:
+          - name: '#33384'
+            url: https://github.com/apache/airflow/pull/33384
+        - description: 'Misc: Remove K8S 1.23 support'
+          kind: changed
+          links:
+          - name: '#32899'
+            url: https://github.com/apache/airflow/pull/32899
+        - description: 'Misc: Fix chart named template comments'
+          kind: changed
+          links:
+          - name: '#32681'
+            url: https://github.com/apache/airflow/pull/32681
+        - description: 'Misc: Remove outdated comment from chart values in the workers KEDA
+            conf section'
+          kind: changed
+          links:
+          - name: '#32300'
+            url: https://github.com/apache/airflow/pull/32300
+        - description: 'Misc: Remove unnecessary ``or`` function in template files'
+          kind: changed
+          links:
+          - name: '#34415'
+            url: https://github.com/apache/airflow/pull/34415
+      artifacthub.io/links: |
+        - name: Documentation
+          url: https://airflow.apache.org/docs/helm-chart/1.11.0/
+      artifacthub.io/screenshots: |
+        - title: DAGs View
+          url: https://airflow.apache.org/docs/apache-airflow/2.7.1/_images/dags.png
+        - title: Datasets View
+          url: https://airflow.apache.org/docs/apache-airflow/2.7.1/_images/datasets.png
+        - title: Grid View
+          url: https://airflow.apache.org/docs/apache-airflow/2.7.1/_images/grid.png
+        - title: Graph View
+          url: https://airflow.apache.org/docs/apache-airflow/2.7.1/_images/graph.png
+        - title: Calendar View
+          url: https://airflow.apache.org/docs/apache-airflow/2.7.1/_images/calendar.png
+        - title: Variable View
+          url: https://airflow.apache.org/docs/apache-airflow/2.7.1/_images/variable_hidden.png
+        - title: Gantt Chart
+          url: https://airflow.apache.org/docs/apache-airflow/2.7.1/_images/gantt.png
+        - title: Task Duration
+          url: https://airflow.apache.org/docs/apache-airflow/2.7.1/_images/duration.png
+        - title: Code View
+          url: https://airflow.apache.org/docs/apache-airflow/2.7.1/_images/code.png
+    apiVersion: v2
+    appVersion: 2.7.1
+    created: "2024-09-29T21:58:50.2884323+05:45"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.10.0
+    description: The official Helm chart to deploy Apache Airflow, a platform to programmatically
+      author, schedule, and monitor workflows
+    digest: 4b3b696c323cd5b001fc03c2749ed096fc2967e7ad2c0d2ae42e68e2b6eeffa2
+    home: https://airflow.apache.org/
+    icon: https://airflow.apache.org/images/airflow_dark_bg.png
+    keywords:
+    - apache
+    - airflow
+    - workflow
+    - scheduler
+    maintainers:
+    - email: dev@airflow.apache.org
+      name: Apache Airflow PMC
+    name: airflow
+    sources:
+    - https://github.com/apache/airflow
+    type: application
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/airflow-1.11.0.tgz
+    version: 1.11.0
   hive-metastore:
   - apiVersion: v2
     appVersion: 3.1.2
-    created: "2024-05-19T22:37:50.257663096+05:45"
+    created: "2024-09-29T21:58:50.3018192+05:45"
     description: The Apache Hive™ data warehouse software facilitates reading, writing,
       and managing large datasets residing in distributed storage using SQL. Structure
       can be projected onto data already in storage. A command line tool and JDBC
@@ -22,6 +343,29 @@ entries:
     urls:
     - https://dlytica-gcp.github.io/datanature-helm/hive-metastore-0.0.1.tgz
     version: 0.0.1
+  minio:
+  - apiVersion: v1
+    appVersion: RELEASE.2024-04-18T19-09-19Z
+    created: "2024-09-29T21:58:50.3165047+05:45"
+    description: High Performance Object Storage
+    digest: 8ef4212d7d51be6c8192b3e91138a9ca918ca56142c42500028cfd3b80e0b2dd
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - minio
+    - storage
+    - object-storage
+    - s3
+    - cluster
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: minio
+    sources:
+    - https://github.com/minio/minio
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/minio-5.2.0.tgz
+    version: 5.2.0
   n8n:
   - annotations:
       artifacthub.io/changes: "- kind: fixed\n  description: \"Fix persistence init
@@ -30,7 +374,7 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.34.2
-    created: "2024-05-19T22:37:50.279112991+05:45"
+    created: "2024-09-29T21:58:50.3317206+05:45"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -62,4 +406,367 @@ entries:
     urls:
     - https://dlytica-gcp.github.io/datanature-helm/n8n-0.23.1.tgz
     version: 0.23.1
-generated: "2024-05-19T22:37:50.250143195+05:45"
+  nifi:
+  - apiVersion: v2
+    appVersion: 1.23.2
+    created: "2024-09-29T21:58:50.3511979+05:45"
+    dependencies:
+    - condition: zookeeper.enabled
+      name: zookeeper
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.2.7
+    - alias: registry
+      condition: registry.enabled
+      name: nifi-registry
+      repository: https://dysnix.github.io/charts/
+      version: 1.0.0
+    - condition: ca.enabled
+      name: ca
+      repository: ""
+      version: 1.0.1
+    - condition: openldap.enabled
+      name: openldap
+      repository: https://charts.helm.sh/stable
+      version: ~1.2.4
+    description: Apache NiFi is a software project from the Apache Software Foundation
+      designed to automate the flow of data between software systems.
+    digest: eec502f3156fb903905f834085cc1177492db792873adbede757632b29df7888
+    home: https://nifi.apache.org/
+    icon: https://svn.apache.org/repos/asf/nifi/site/trunk/images/niFi-logo-horizontal-scaled.png
+    keywords:
+    - nifi
+    - data
+    - process
+    maintainers:
+    - email: sebastien.dupont@cetic.be
+      name: banzo
+      url: https://github.com/banzo
+    - email: amen.ayadi@cetic.be
+      name: AyadiAmen
+      url: https://github.com/AyadiAmen
+    - email: alexandre.nuttinck@cetic.be
+      name: alexnuttinck
+      url: https://github.com/alexnuttinck
+    - email: zakaria.hajja@cetic.be
+      name: zakaria2905
+      url: https://github.com/zakaria2905
+    name: nifi
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/nifi-1.2.1.tgz
+    version: 1.2.1
+  openldap-stack-ha:
+  - apiVersion: v2
+    appVersion: 2.6.6
+    created: "2024-09-29T21:58:50.3646749+05:45"
+    dependencies:
+    - condition: ltb-passwd.enabled
+      name: ltb-passwd
+      repository: ""
+      version: 0.1.x
+    - condition: phpldapadmin.enabled
+      name: phpldapadmin
+      repository: ""
+      version: 0.1.x
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: Community developed LDAP software
+    digest: 158b71d16af5780baa4c61f14c91803bc028f85a8dbf43f8d92893b9c65b6e34
+    home: https://www.openldap.org
+    icon: https://raw.githubusercontent.com/jp-gouin/helm-openldap/master/logo.png
+    keywords:
+    - ldap
+    - openldap
+    - iam-stack
+    - high availability
+    maintainers:
+    - email: jp-gouin@hotmail.fr
+      name: Jean-Philippe Gouin
+    name: openldap-stack-ha
+    sources:
+    - https://github.com/jp-gouin/helm-openldap
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/openldap-stack-ha-4.2.2.tgz
+    version: 4.2.2
+  openmetadata:
+  - apiVersion: v2
+    appVersion: 1.3.4
+    created: "2024-09-29T21:58:50.3746299+05:45"
+    description: A Helm chart for OpenMetadata on Kubernetes
+    digest: 1b473d9100c7eb90af4d0db8cc74847b4f681f648db2e0353d33ade3f62973dc
+    home: https://open-metadata.org/
+    icon: https://open-metadata.org/images/favicon.png
+    keywords:
+    - metadata
+    - data-science
+    - data
+    - machine-learning
+    - automation
+    - big-data
+    - bigdata
+    - artificial-intelligence
+    - datascience
+    - data-engineering
+    - data-catalog
+    - metadata-api
+    - governance
+    - data-profiling
+    - metadata-management
+    - dataengineering
+    - dataquality
+    - bigdataanalytics
+    - datadiscovery
+    maintainers:
+    - email: support@open-metadata.org
+      name: OpenMetadata
+    name: openmetadata
+    sources:
+    - https://github.com/open-metadata/OpenMetadata
+    - https://github.com/open-metadata/openmetadata-helm-charts
+    type: application
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/openmetadata-1.3.4.tgz
+    version: 1.3.4
+  openmetadata-dependencies:
+  - apiVersion: v2
+    appVersion: 1.3.4
+    created: "2024-09-29T21:58:50.3972201+05:45"
+    dependencies:
+    - condition: mysql.enabled
+      name: mysql
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.7.2
+    - condition: airflow.enabled
+      name: airflow
+      repository: https://airflow-helm.github.io/charts
+      version: 8.8.0
+    - condition: opensearch.enabled
+      name: opensearch
+      repository: https://opensearch-project.github.io/helm-charts/
+      version: 2.12.1
+    description: Helm Dependencies for OpenMetadata
+    digest: 9b86dcf4f5d48c56e9b5c547fde95d220ad3688e2e4c9700c4f23de0611d658c
+    home: https://open-metadata.org/
+    icon: https://open-metadata.org/images/favicon.png
+    keywords:
+    - metadata
+    - data-science
+    - data
+    - machine-learning
+    - automation
+    - big-data
+    - bigdata
+    - artificial-intelligence
+    - datascience
+    - data-engineering
+    - data-catalog
+    - metadata-api
+    - governance
+    - data-profiling
+    - metadata-management
+    - dataengineering
+    - dataquality
+    - bigdataanalytics
+    - datadiscovery
+    maintainers:
+    - email: support@open-metadata.org
+      name: OpenMetadata
+    name: openmetadata-dependencies
+    sources:
+    - https://github.com/open-metadata/OpenMetadata
+    - https://github.com/open-metadata/openmetadata-helm-charts
+    type: application
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/openmetadata-dependencies-1.3.4.tgz
+    version: 1.3.4
+  operator:
+  - apiVersion: v2
+    appVersion: v5.0.11
+    created: "2024-09-29T21:58:50.4098415+05:45"
+    description: A Helm chart for MinIO Operator
+    digest: 0198f0939b54a44face01b3f54fc8f12ff176e8a371114608856a1d0e53fe01a
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - storage
+    - object-storage
+    - S3
+    maintainers:
+    - email: dev@minio.io
+      name: MinIO, Inc
+    name: operator
+    sources:
+    - https://github.com/minio/operator
+    type: application
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/operator-5.0.11.tgz
+    version: 5.0.11
+  pgadmin4:
+  - apiVersion: v1
+    appVersion: "8.8"
+    created: "2024-09-29T21:58:50.4224984+05:45"
+    description: pgAdmin4 is a web based administration tool for PostgreSQL database
+    digest: e8bafba3ee292c8464a840d4c9a532bd1986711e61295aa1bd21cc2b8fe3e920
+    home: https://www.pgadmin.org/
+    icon: https://wiki.postgresql.org/images/3/30/PostgreSQL_logo.3colors.120x120.png
+    keywords:
+    - pgadmin
+    - postgres
+    - database
+    - sql
+    maintainers:
+    - email: rowanruseler@gmail.com
+      name: rowanruseler
+    name: pgadmin4
+    sources:
+    - https://github.com/rowanruseler/helm-charts
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/pgadmin4-1.26.0.tgz
+    version: 1.26.0
+  postgresql:
+  - annotations:
+      category: Database
+      images: |
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r96
+        - name: postgres-exporter
+          image: docker.io/bitnami/postgres-exporter:0.15.0-debian-11-r8
+        - name: postgresql
+          image: docker.io/bitnami/postgresql:16.1.0-debian-11-r26
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 16.1.0
+    created: "2024-09-29T21:58:50.4394108+05:45"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: PostgreSQL (Postgres) is an open source object-relational database
+      known for reliability and data integrity. ACID-compliant, it supports foreign
+      keys, joins, views, triggers and stored procedures.
+    digest: 322c23fcb47809fe18eab98d7c1ee9dc650ef1e7de752d7bb1680c55706de43b
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-220x234.png
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    - sql
+    - replication
+    - cluster
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: postgresql
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/postgresql
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/postgresql-14.0.1.tgz
+    version: 14.0.1
+  spark:
+  - annotations:
+      category: Infrastructure
+      images: |
+        - name: spark
+          image: docker.io/bitnami/spark:3.5.1-debian-12-r8
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 3.5.1
+    created: "2024-09-29T21:58:50.4533451+05:45"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Apache Spark is a high-performance engine for large-scale computing
+      tasks, such as data processing, machine learning and real-time data streaming.
+      It includes APIs for Java, Python, Scala and R.
+    digest: e33d5b38f1b970343046fbc94bef935248db8311596661d05899d454346df7c2
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/spark/img/spark-stack-220x234.png
+    keywords:
+    - apache
+    - spark
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: spark
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/spark
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/spark-9.2.5.tgz
+    version: 9.2.5
+  superset:
+  - apiVersion: v2
+    appVersion: 4.0.0
+    created: "2024-09-29T21:58:50.4742545+05:45"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.1.6
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.9.4
+    description: Apache Superset is a modern, enterprise-ready business intelligence
+      web application
+    digest: d3fbeada835f40dff4efef9dbf5ea58ca6d4757cff209accea9d435c61ade4f9
+    home: https://superset.apache.org/
+    icon: https://artifacthub.io/image/68c1d717-0e97-491f-b046-754e46f46922@2x
+    keywords:
+    - business intelligence
+    - data science
+    maintainers:
+    - email: craig@craigrueda.com
+      name: craig-rueda
+      url: https://github.com/craig-rueda
+    name: superset
+    sources:
+    - https://github.com/apache/superset
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/superset-0.12.9.tgz
+    version: 0.12.9
+  trino:
+  - apiVersion: v2
+    appVersion: "453"
+    created: "2024-09-29T21:58:50.4999853+05:45"
+    description: Fast distributed SQL query engine for big data analytics that helps
+      you explore your data universe
+    digest: a9be4961fc0407656fec61a0f1c4cb3ac372739765ffa3ef2a0874bb32e5d3db
+    home: https://trino.io/
+    icon: https://trino.io/assets/trino.png
+    maintainers:
+    - name: Trino community
+    name: trino
+    sources:
+    - https://github.com/trinodb/charts
+    - https://github.com/trinodb/trino/tree/master/core/docker
+    type: application
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/trino-0.26.0.tgz
+    version: 0.26.0
+  - apiVersion: v2
+    appVersion: "432"
+    created: "2024-09-29T21:58:50.4885962+05:45"
+    description: Fast distributed SQL query engine for big data analytics that helps
+      you explore your data universe
+    digest: 6635766c94f0858df6b9ed87260f6a55bc842d5685bda73f1f85332121216642
+    home: https://trino.io/
+    icon: https://trino.io/assets/trino.png
+    maintainers:
+    - name: Trino community
+    name: trino
+    sources:
+    - https://github.com/trinodb/charts
+    - https://github.com/trinodb/trino/tree/master/core/docker
+    type: application
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/trino-0.17.0.tgz
+    version: 0.17.0
+generated: "2024-09-29T21:58:50.223517+05:45"
