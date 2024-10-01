@@ -19,3 +19,4 @@ Public helm chart registry server to store helm charts for DataNature
 |spark         | 9.2.5              |
 |superset      | 0.12.9             |
 |trino         | 0.17.0, 0.26.0     |
+| mautic       | 0.1.5              |
