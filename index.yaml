@@ -3,7 +3,7 @@ entries:
   airbyte:
   - apiVersion: v2
     appVersion: 0.50.47
-    created: "2024-10-01T13:40:15.8934404+05:45"
+    created: "2024-12-03T12:05:50.609145774+05:45"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -295,7 +295,7 @@ entries:
           url: https://airflow.apache.org/docs/apache-airflow/2.7.1/_images/code.png
     apiVersion: v2
     appVersion: 2.7.1
-    created: "2024-10-01T13:40:15.9189745+05:45"
+    created: "2024-12-03T12:05:50.67716801+05:45"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -324,7 +324,7 @@ entries:
   hive-metastore:
   - apiVersion: v2
     appVersion: 3.1.2
-    created: "2024-10-01T13:40:15.9316175+05:45"
+    created: "2024-12-03T12:05:50.711797335+05:45"
     description: The Apache Hive™ data warehouse software facilitates reading, writing,
       and managing large datasets residing in distributed storage using SQL. Structure
       can be projected onto data already in storage. A command line tool and JDBC
@@ -343,10 +343,45 @@ entries:
     urls:
     - https://dlytica-gcp.github.io/datanature-helm/hive-metastore-0.0.1.tgz
     version: 0.0.1
+  kube-starrocks:
+  - apiVersion: v2
+    appVersion: 3.3-latest
+    created: "2024-12-03T12:05:50.751161422+05:45"
+    dependencies:
+    - name: operator
+      repository: file://charts/operator
+      version: 1.9.8
+    - name: starrocks
+      repository: file://charts/starrocks
+      version: 1.9.8
+    description: kube-starrocks includes two subcharts, operator and starrocks
+    digest: 9b767cc5a30208f7512bc1c56556168535528cc5a532991a540a447ad02b55c0
+    home: https://github.com/StarRocks/starrocks-kubernetes-operator
+    icon: https://avatars.githubusercontent.com/u/88238841
+    keywords:
+    - operator
+    - starrocks
+    - database
+    - olap
+    kubeVersion: '>=1.18.3-0'
+    maintainers:
+    - email: caixiaohua@starrocks.com
+      name: Kevin Cai
+    - email: shensida@starrocks.com
+      name: SidaShen
+    - email: yandongxiao@starrocks.com
+      name: Dongxiao Yan
+    name: kube-starrocks
+    sources:
+    - https://github.com/StarRocks/starrocks
+    type: application
+    urls:
+    - https://dlytica-gcp.github.io/datanature-helm/kube-starrocks-1.9.8.tgz
+    version: 1.9.8
   mautic:
   - apiVersion: v2
     appVersion: v4-apache
-    created: "2024-10-01T13:40:15.9364081+05:45"
+    created: "2024-12-03T12:05:50.800810263+05:45"
     dependencies:
     - condition: mariadb.enabled
       name: mariadb
@@ -372,7 +407,7 @@ entries:
   minio:
   - apiVersion: v1
     appVersion: RELEASE.2024-04-18T19-09-19Z
-    created: "2024-10-01T13:40:15.9487689+05:45"
+    created: "2024-12-03T12:05:50.836545812+05:45"
     description: High Performance Object Storage
     digest: 8ef4212d7d51be6c8192b3e91138a9ca918ca56142c42500028cfd3b80e0b2dd
     home: https://min.io
@@ -400,7 +435,7 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.34.2
-    created: "2024-10-01T13:40:15.9593895+05:45"
+    created: "2024-12-03T12:05:50.89442902+05:45"
     dependencies:
     - condition: redis.enabled
       name: redis
@@ -435,7 +470,7 @@ entries:
   nifi:
   - apiVersion: v2
     appVersion: 1.23.2
-    created: "2024-10-01T13:40:15.990355+05:45"
+    created: "2024-12-03T12:05:50.95142384+05:45"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -483,7 +518,7 @@ entries:
   openldap-stack-ha:
   - apiVersion: v2
     appVersion: 2.6.6
-    created: "2024-10-01T13:40:16.0010543+05:45"
+    created: "2024-12-03T12:05:50.996564286+05:45"
     dependencies:
     - condition: ltb-passwd.enabled
       name: ltb-passwd
@@ -519,7 +554,7 @@ entries:
   openmetadata:
   - apiVersion: v2
     appVersion: 1.3.4
-    created: "2024-10-01T13:40:16.0114978+05:45"
+    created: "2024-12-03T12:05:51.029867959+05:45"
     description: A Helm chart for OpenMetadata on Kubernetes
     digest: 1b473d9100c7eb90af4d0db8cc74847b4f681f648db2e0353d33ade3f62973dc
     home: https://open-metadata.org/
@@ -558,7 +593,7 @@ entries:
   openmetadata-dependencies:
   - apiVersion: v2
     appVersion: 1.3.4
-    created: "2024-10-01T13:40:16.0448178+05:45"
+    created: "2024-12-03T12:05:51.109913266+05:45"
     dependencies:
     - condition: mysql.enabled
       name: mysql
@@ -610,7 +645,7 @@ entries:
   operator:
   - apiVersion: v2
     appVersion: v5.0.11
-    created: "2024-10-01T13:40:16.0615507+05:45"
+    created: "2024-12-03T12:05:51.146954613+05:45"
     description: A Helm chart for MinIO Operator
     digest: 0198f0939b54a44face01b3f54fc8f12ff176e8a371114608856a1d0e53fe01a
     home: https://min.io
@@ -632,7 +667,7 @@ entries:
   pgadmin4:
   - apiVersion: v1
     appVersion: "8.8"
-    created: "2024-10-01T13:40:16.0776491+05:45"
+    created: "2024-12-03T12:05:51.177951216+05:45"
     description: pgAdmin4 is a web based administration tool for PostgreSQL database
     digest: e8bafba3ee292c8464a840d4c9a532bd1986711e61295aa1bd21cc2b8fe3e920
     home: https://www.pgadmin.org/
@@ -664,7 +699,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 16.1.0
-    created: "2024-10-01T13:40:16.0944988+05:45"
+    created: "2024-12-03T12:05:51.225889513+05:45"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -702,7 +737,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 3.5.1
-    created: "2024-10-01T13:40:16.1061107+05:45"
+    created: "2024-12-03T12:05:51.267097613+05:45"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -730,7 +765,7 @@ entries:
   superset:
   - apiVersion: v2
     appVersion: 4.0.0
-    created: "2024-10-01T13:40:16.1381018+05:45"
+    created: "2024-12-03T12:05:51.341977226+05:45"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -761,7 +796,7 @@ entries:
   trino:
   - apiVersion: v2
     appVersion: "453"
-    created: "2024-10-01T13:40:16.1678141+05:45"
+    created: "2024-12-03T12:05:51.422630058+05:45"
     description: Fast distributed SQL query engine for big data analytics that helps
       you explore your data universe
     digest: a9be4961fc0407656fec61a0f1c4cb3ac372739765ffa3ef2a0874bb32e5d3db
@@ -779,7 +814,7 @@ entries:
     version: 0.26.0
   - apiVersion: v2
     appVersion: "432"
-    created: "2024-10-01T13:40:16.1566811+05:45"
+    created: "2024-12-03T12:05:51.379807573+05:45"
     description: Fast distributed SQL query engine for big data analytics that helps
       you explore your data universe
     digest: 6635766c94f0858df6b9ed87260f6a55bc842d5685bda73f1f85332121216642
@@ -795,4 +830,4 @@ entries:
     urls:
     - https://dlytica-gcp.github.io/datanature-helm/trino-0.17.0.tgz
     version: 0.17.0
-generated: "2024-10-01T13:40:15.8469519+05:45"
+generated: "2024-12-03T12:05:50.485849737+05:45"
